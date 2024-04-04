@@ -1,7 +1,7 @@
 # Introducción a Quarto
 
 
-¡Les damos la bienvenida!
+¡Les damos la bienvenida al taller de introducción a `Quarto`!
 
 ## TEMARIO
 
@@ -15,6 +15,7 @@ En esta sesión hablaremos sobre:
 Más info en: [Blog temario](https://haly-en.github.io/BLOG/Talks/R-ladies/)
 
 ## Fecha 
+
 Jueves 11 de abril de 2024
 
 
@@ -30,9 +31,9 @@ Para seguir los ejercicios, revisar que cuentes con lo siguiente por favor:
 
 *  Tener el repositorio clonado o descargado.
   
-    Para descargar este repositorio, da click en el botón Code > Download zip. 
+    - Para descargar este repositorio, da click en el botón Code > Download zip. 
 
-    Si lo prefieres, puedes usar el comando `git clone < url_repositorio > ` desde tu terminal para clonar el repositorio.
+    - Si lo prefieres, puedes usar el comando `git clone < url_repositorio > ` desde tu terminal para clonar el repositorio.
 
 *  Que tengas la última versión de Rstudio o v2022.07
 
@@ -43,8 +44,12 @@ Para seguir los ejercicios, revisar que cuentes con lo siguiente por favor:
 ## Requerimientos de software
 
 + R >=4.0 y RStudio
-+ 
+
 ### Instalar Quarto
+
+Normalmente `Quarto` puede utilizarse en diferentes tipos de editores como: VS code, Jupyter Lab, directo en línea de comandos en la terminal y muchas más. En esta ocasión trabajaremos desde Rstudio.
+
+* Si tú ya tienes instalada la última versión de Rstudio, v2022.07 `Quarto` ya está instalado con tu Rstudio. Si no es así, instala Quarto. 
 
  Para la instalación de Quarto ir a la siguiente página:
  
