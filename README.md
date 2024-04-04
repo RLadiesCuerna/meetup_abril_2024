@@ -8,8 +8,10 @@
 En esta sesión hablaremos sobre:
 
 - Introducción a `Quarto`
-- Cómo utilizar Quarto
-- Realizar mi primer reporte con Quarto
+- Cómo utilizar `Quarto`
+- Realizar mi primer reporte con `Quarto`
+
+  
 Más info en: [Blog temario](https://haly-en.github.io/BLOG/Talks/R-ladies/)
 
 ## Fecha 
@@ -45,12 +47,13 @@ Para seguir los ejercicios, revisar que cuentes con lo siguiente por favor:
 ### Instalar Quarto
 
  Para la instalación de Quarto ir a la siguiente página:
+ 
  [https://quarto.org/docs/get-started/](https://quarto.org/docs/get-started/)
- Seguir las instrucciones que aparecen en la página. 
+ 
  En la página se encuentran las instrucciones para la instalación en distintos tipos de sistemas operativos (SO).
  Si no logran instalarlo, para el meetup, tener a la mano el archivo ejecutable descargado para su SO.
 
-+ Paquetes de R: ggpubr, tidyverse y palmerpenguins, los cuades puedes instalar con la instrucción:
++ Paquetes de R: ggpubr, tidyverse y `palmerpenguins`, los cuades puedes instalar con la instrucción:
 
 `install.packages(c("ggpubr", "palmerpenguins", "tidyverse"), dependencies = TRUE)`
 
