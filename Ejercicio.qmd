@@ -1,0 +1,84 @@
+---
+title: "Primer reporte"
+subtitle: "En Quarto"
+author: "Maricela Carrera"
+#title-block-banner: "#542788"
+#title-block-banner: "pinguinos.jpg"
+#https://www.istockphoto.com/es/portfolio/MichelVIARD?mediatype=photography
+#code-fold: true
+format: html
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+```{r}
+#| label: load-packages
+#| include: false
+
+if(!require(tidyverse)){
+    install.packages("tidyverse")
+    library(tidyverse)
+}
+
+if(!require(palmerpenguins)){
+    install.packages("palmerpenguins")
+    library(palmerpenguins)
+}
+
+if(!require(downlit)){
+    install.packages("downlit")
+    library(downlit)
+}
+```
+
+## Meet Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Meet the penguins
+
+![](https://raw.githubusercontent.com/quarto-dev/quarto-web/main/docs/get-started/hello/rstudio/lter_penguins.png){style="float:right;" fig-alt="Illustration of three species of Palmer Archipelago penguins: Chinstrap, Gentoo, and Adelie. Artwork by @allison_horst." width="401"}
+
+The `penguins` data from the [**palmerpenguins**](https://allisonhorst.github.io/palmerpenguins "palmerpenguins R package") package contains size measurements for `r nrow(penguins)` penguins from three species observed on three islands in the Palmer Archipelago, Antarctica.
+
+The plot below shows the relationship between flipper and bill lengths of these penguins.
+
+```{r}
+#| label: fig-penguins
+#| warning: false
+#| fig-cap: Esta es una gráfica sobre pinguinos
+#| 
+library("palmerpenguins")
+
+ggplot(penguins, 
+       aes(x = flipper_length_mm, y = bill_length_mm)) +
+  geom_point(aes(color = species, shape = species)) +
+  scale_color_manual(values = c("darkorange","purple","cyan4")) +
+  labs(
+    title = "Flipper and bill length",
+    subtitle = "Dimensions for penguins at Palmer Station LTER",
+    x = "Flipper length (mm)", y = "Bill length (mm)",
+    color = "Penguin species", shape = "Penguin species"
+  ) +
+  theme_minimal()
+```
