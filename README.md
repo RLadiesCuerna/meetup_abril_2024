@@ -38,6 +38,7 @@ Para seguir los ejercicios, revisar que cuentes con lo siguiente por favor:
 *  Que tengas la última versión de Rstudio o v2022.07
 
 *  o tener una cuenta de rstudio.cloud para poder acceder al proyecto donde estarán los ejercicios.
+    -  Proyecto: https://posit.cloud/content/7972398 
 
 * No se requieren conocimientos previos.*
   
