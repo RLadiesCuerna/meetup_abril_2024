@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="R_ladies_template_2024_files/libs/clipboard/clipboard.min.js"></script>
+<script src="R_ladies_template_2024_files/libs/quarto-html/tabby.min.js"></script>
+<script src="R_ladies_template_2024_files/libs/quarto-html/popper.min.js"></script>
+<script src="R_ladies_template_2024_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="R_ladies_template_2024_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="R_ladies_template_2024_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="R_ladies_template_2024_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="R_ladies_template_2024_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="R_ladies_template_2024_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
+<link href="R_ladies_template_2024_files/libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
+<script src="R_ladies_template_2024_files/libs/quarto-contrib/sc-sb-title-1.0.0/sc_sb_title.js" defer="true"></script>
+<link href="R_ladies_template_2024_files/libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet">
+<link href="R_ladies_template_2024_files/libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="R_ladies_template_2024_files/libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.4.549">
+
+  <meta name="author" content="Maricela Carrera">
+  <title>Introducción a Quarto</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="R_ladies_template_2024_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="R_ladies_template_2024_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="R_ladies_template_2024_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="R_ladies_template_2024_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="R_ladies_template_2024_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="R_ladies_template_2024_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="R_ladies_template_2024_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="R_ladies_template_2024_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="R_ladies_template_2024_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="R_ladies_template_2024_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="R_ladies_template_2024_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="R_ladies_template_2024_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
+  <script src="R_ladies_template_2024_files/libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
+  <link href="R_ladies_template_2024_files/libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+  <script src="R_ladies_template_2024_files/libs/datatables-binding-0.33/datatables.js"></script>
+  <script src="R_ladies_template_2024_files/libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <link href="R_ladies_template_2024_files/libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+  <link href="R_ladies_template_2024_files/libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+  <script src="R_ladies_template_2024_files/libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+  <link href="R_ladies_template_2024_files/libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+  <script src="R_ladies_template_2024_files/libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-color="#8c96c6" class="quarto-title-block center">
+  <h1 class="title">Introducción a Quarto</h1>
+  <p class="subtitle">R Ladies Cuernavaca</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Maricela Carrera 
+</div>
+</div>
+</div>
+
+  <p class="date">11 Apr, 2024</p>
+</section>
+<section id="bienvenidos-a-aprender-acerca-de-quarto" class="slide level2">
+<h2>¡Bienvenidos a aprender acerca de Quarto!</h2>
+<p>Mi nombre es <code>Maricela Carrera</code></p>
+<p><left></left></p>
+<div class="profile-picture">
+<p><img src="profile_haly.png" alt="Your Profile Picture"></p>
+</div>
+<p><a href="https://github.com/"><i class="fa-brands fa-github" aria-label="github"></i> @haly-en</a></p>
+<p><a href="https://twitter.com/HalyHalymary"><i class="fa-brands fa-twitter" aria-label="twitter"></i> @HalyHalymary</a></p>
+<p><a href="https://www.linkedin.com/in/maricela-carrera-31786b169/"><i class="fa-solid fa-link" aria-label="link"></i> @Maricela&nbsp;Carrera</a></p>
+<p></p>
+<div class="r-stack">
+<p><img data-src="logopyladies_png.png" class="fragment absolute" style="bottom: 20px; right: 250px; width: 300px; height: 300px; "></p>
+<p><img data-src="logo.png" class="fragment absolute" style="top: 90px; right: 50px; width: 300px; height: 250px; "></p>
+</div>
+<div class="footer">
+
+</div>
+</section>
+<section>
+<section id="qué-es-quarto" class="title-slide slide level1 center">
+<h1>¿Qué es <code>Quarto</code>?</h1>
+<div class="fragment grow semi-fade-out left-text">
+<p>Es un sistema de publicación científica y técnica</p>
+</div>
+<div class="fragment grow semi-fade-out left-text">
+<p>de código abierto.</p>
+</div>
+<div class="absolute fragment" style="top: 15%; left: 90%; width: 300px; ">
+<div class="blackbox">
+<p><span class="small"><code>Quarto</code> es un lenguaje de marcado para la creación de documentos. Es una herramienta versátil que se puede usar para crear una amplia variedad de documentos.</span></p>
+</div>
+</div>
+
+<div class="footer">
+<p>Esta presentación está construida con <code>Quarto</code></p>
+</div>
+<aside class="notes">
+<p>Quarto es un sistema de publicación científica y técnica de código abierto que le permite combinar texto narrativo y código para producir resultados de alta calidad, incluidos informes, presentaciones, sitios web y más.</p>
+<p>Científico y técnico: Significa que Quarto tiene funcionalidades específicas para artículos de revistas o trabajos científicos, como soporte para ejecución de código, citas, notas al pie, Markdown científico, ecuaciones, referencias cruzadas, paneles de figuras, leyendas, diseño avanzado y más. Veremos algunos de estos elementos más adelante. Código abierto: En RStudio creemos que es mejor para todos que las herramientas utilizadas en investigación y ciencia sean gratuitas y abiertas. El software libre en la ciencia significa mayor reproducibilidad, intercambio generalizado de conocimientos y técnicas, y eliminación de barreras de costo. También puedes ver el código fuente y contribuir. (ya que eres más experimentado)</p>
+<p>Sistema de publicación: Con Quarto puedes crear contenido dinámico con Python, R, Julia y Observable. Quarto toma texto plano renderizado como archivos R Markdown o formatos mixtos como cuadernos Jupyter para generar artículos, informes, presentaciones, sitios web, blogs y libros de alta calidad en HTML, PDF, MS Word, ePub y más.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<aside><div>
+<p>Check out <a href="https://www.youtube.com/watch?v=9jGc0TxoRco">JJ Allaire’s R Medicine Keynote</a>!</p>
+</div></aside></section>
+<section id="quarto-se-ve-así" class="slide level2 small">
+<h2>Quarto se ve así:</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href=""></a><span class="co">---</span></span>
+<span id="cb1-2"><a href=""></a><span class="an">title:</span><span class="co"> "ggplot2 demo"</span></span>
+<span id="cb1-3"><a href=""></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb1-4"><a href=""></a><span class="co">  html:</span></span>
+<span id="cb1-5"><a href=""></a><span class="co">    code-fold: true</span></span>
+<span id="cb1-6"><a href=""></a><span class="co">---</span></span>
+<span id="cb1-7"><a href=""></a></span>
+<span id="cb1-8"><a href=""></a><span class="fu">## Meet Quarto</span></span>
+<span id="cb1-9"><a href=""></a></span>
+<span id="cb1-10"><a href=""></a>Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <span class="ot">&lt;https://quarto.org&gt;</span>.</span>
+<span id="cb1-11"><a href=""></a></span>
+<span id="cb1-12"><a href=""></a><span class="in">```{r}</span></span>
+<span id="cb1-13"><a href=""></a><span class="in">#| label: plot-penguins</span></span>
+<span id="cb1-14"><a href=""></a><span class="in">#| echo: false</span></span>
+<span id="cb1-15"><a href=""></a><span class="in">#| message: false</span></span>
+<span id="cb1-16"><a href=""></a><span class="in">#| warning: false</span></span>
+<span id="cb1-17"><a href=""></a></span>
+<span id="cb1-18"><a href=""></a><span class="in">library(tidyverse)</span></span>
+<span id="cb1-19"><a href=""></a><span class="in">library(palmerpenguins)</span></span>
+<span id="cb1-20"><a href=""></a></span>
+<span id="cb1-21"><a href=""></a><span class="in">ggplot(penguins, </span></span>
+<span id="cb1-22"><a href=""></a><span class="in">       aes(x = flipper_length_mm, y = bill_length_mm)) +</span></span>
+<span id="cb1-23"><a href=""></a><span class="in">  geom_point(aes(color = species, shape = species)) +</span></span>
+<span id="cb1-24"><a href=""></a><span class="in">  scale_color_manual(values = c("darkorange","purple","cyan4")) +</span></span>
+<span id="cb1-25"><a href=""></a><span class="in">  labs(</span></span>
+<span id="cb1-26"><a href=""></a><span class="in">    title = "Flipper and bill length",</span></span>
+<span id="cb1-27"><a href=""></a><span class="in">    subtitle = "Dimensions for penguins at Palmer Station LTER",</span></span>
+<span id="cb1-28"><a href=""></a><span class="in">    x = "Flipper length (mm)", y = "Bill length (mm)",</span></span>
+<span id="cb1-29"><a href=""></a><span class="in">    color = "Penguin species", shape = "Penguin species"</span></span>
+<span id="cb1-30"><a href=""></a><span class="in">  ) +</span></span>
+<span id="cb1-31"><a href=""></a><span class="in">  theme_minimal()</span></span>
+<span id="cb1-32"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p><img data-src="imagenes/knitr-plot.png"></p>
+</div>
+</div>
+<aside class="notes">
+<p>This is a Quarto document with the extension .qmd (on the left) along with its rendered version as HTML (on the right). You could also choose to render it into other formats like PDF, MS Word, etc. This is the basic model for Quarto publishing—take a source document and render it to a variety of output formats. Since it uses knitr, most Rmd files can be used unmodified.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section id="section" class="title-slide slide level1 center">
+<h1></h1>
+<div class="quarto-figure quarto-figure-center" style="top: 20px; left: 5px; width: 90%; height: 150%; ">
+<figure>
+<p><img data-src="imagenes/quarto_document_demo.png" class="absolute"></p>
+<figcaption>Quarto Demo</figcaption>
+</figure>
+</div>
+<div class="absolute" style="top: 15%; left: 90%; width: 300px; ">
+<div class="blackbox">
+<p><span class="small"><code>Quarto</code> es un lenguaje de marcado para la creación de documentos. Es una herramienta versátil que se puede usar para crear una amplia variedad de documentos.</span> <br> <span class="small"><code>permite combinar texto narrativo y código</code></span></p>
+</div>
+</div>
+<aside class="notes">
+<p>Quarto es un sistema de publicación científica y técnica de código abierto que le permite combinar texto narrativo y código para producir resultados de alta calidad, incluidos informes, presentaciones, sitios web y más.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="section-1" class="title-slide slide level1 center">
+<h1></h1>
+
+<img data-src="imagenes/esquema_ejemplomarkup.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="small">Esquema de un fragmento de código escrito con el lenguaje de marcado de HTML.</span></p><div class="absolute" style="top: 15%; left: 90%; width: 300px; ">
+<div class="blackbox">
+<p><span class="small"><code>Quarto</code> es un <span class="colored-italic"><em>lenguaje de marcado</em></span> para la creación de documentos. Es una herramienta versátil que se puede usar para crear una amplia variedad de documentos.</span> <br> <code>Tipos de lenguaje de markup</code></p>
+</div>
+</div>
+<div class="footer">
+<p><a href="https://es.wikipedia.org/wiki/HTML#/media/Archivo:Ejemplo_de_c%C3%B3digo_HTML.jpg">markup o lenguaje de marcado</a></p>
+</div>
+</section>
+
+<section>
+<section id="section-2" class="title-slide slide level1 center">
+<h1></h1>
+<p><span class="left"><code>Markdown</code></span></p>
+<p><img data-src="imagenes/markdown.png" class="fragment absolute" style="top: 90px; left: 5px; width: 50%; height: 100%; "> <img data-src="imagenes/cubo-latex.png" class="fragment absolute" style="top: 90px; right: 70px; width: 50%; height: 150%; " alt="LaTeX"></p>
+<div class="absolute" style="top: 15%; left: 90%; width: 300px; ">
+<div class="blackbox">
+<p><span class="small"><code>Quarto</code> es un lenguaje de marcado para la creación de documentos. Es una herramienta versátil que se puede usar para crear una amplia variedad de documentos.</span> <br> <span class="yellow">Markdown</span> <span class="fragment small">LaTex</span></p>
+</div>
+</div>
+<div class="footer">
+
+</div>
+<aside class="notes">
+<p>Diferencias entre Quarto y LaTeX Quarto y LaTeX son dos sistemas populares para la creación de documentos científicos y técnicos. Si bien ambos comparten algunas similitudes, también existen diferencias importantes a considerar al elegir uno para su proyecto.</p>
+<p>TeX es un sistema de preparación de documentos creado por Donald E. Knuth. TeX no es un procesador de textos tradicional, sino que mas bien se parece a un lenguaje de programación. LATEX, paquete de macros creado por Leslie Lamport. dialectos de TEX(o mejor dicho distintos paquetes de macros)LaTeX es como un lenguaje de alto nivel para TEX. Similitudes:</p>
+<p>Énfasis en la tipografía: Tanto Quarto como LaTeX se enfocan en la tipografía de alta calidad, lo que los hace ideales para documentos que requieren una presentación profesional. Formato flexible: Ambos sistemas ofrecen un alto grado de control sobre el formato del documento, desde el diseño de la página hasta la numeración de secciones y referencias. Soporte para código: Ambos admiten la inclusión de código fuente en el documento, con resaltado de sintaxis y otras características útiles. Diferencias:</p>
+<p>Enfoque:</p>
+<p>Quarto: Es un sistema de publicación completo que abarca desde la creación de documentos hasta la publicación en diferentes formatos (HTML, PDF, sitios web). LaTeX: Se enfoca principalmente en la composición tipográfica y la generación de documentos PDF. Facilidad de uso:</p>
+<p>Quarto: Ofrece una interfaz gráfica de usuario (GUI) en RStudio, lo que facilita el aprendizaje y la creación de documentos para usuarios principiantes. LaTeX: Requiere el uso de código para definir el formato del documento, lo que puede tener una curva de aprendizaje más pronunciada. Lenguaje de marcado:</p>
+<p>Quarto: Utiliza un lenguaje de marcado ligero y fácil de leer, similar a Markdown. LaTeX: Utiliza un lenguaje de marcado más complejo con comandos específicos para definir la estructura y el formato del documento. Integración con R:</p>
+<p>Quarto: Se integra a la perfección con RStudio, lo que facilita la creación de documentos que combinan texto narrativo, código R y resultados. LaTeX: Requiere paquetes adicionales para la integración con R, como knitr</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="por-qué-quarto" class="slide level2">
+<h2>¿Por qué <code>Quarto</code>?</h2>
+<p>Si ya existía <code>Rmarkdown</code> <br> <span class="medium fragment">Construido con base en <strong>Rmarkdown</strong></span></p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="fragment">
+<table>
+<colgroup>
+<col style="width: 75%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="yellow">Sintaxis Markdown</span></th>
+<th><span class="yellow">Salida</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>*italicas* y **negritas**</td>
+<td><em>italicas</em> y <strong>negritas</strong></td>
+</tr>
+<tr class="even">
+<td>superíndice^2^ / subíndice~2~</td>
+<td>superíndice<sup>2</sup> / subíndice<sub>2</sub></td>
+</tr>
+<tr class="odd">
+<td>~~tachado o strikethrough~~</td>
+<td><del>tachado o strikethrough</del></td>
+</tr>
+<tr class="even">
+<td>`código literal`</td>
+<td><code>código literal</code></td>
+</tr>
+<tr class="odd">
+<td>- Elemento de la lista 1</td>
+<td>- Elemento de la lista 1</td>
+</tr>
+<tr class="even">
+<td>[Enlace](https://www.google.com/)</td>
+<td><a href="https://www.google.com/">Enlace</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column fragment" style="width:60%;">
+<p><img data-src="imagenes/rmd_ecosystem.png"></p>
+</div>
+</div>
+<div class="footer">
+<p><a href="https://www.jumpingrivers.com/blog/quarto-rmarkdown-comparison/">Nicola Rennie &amp; Colin Gillespie</a></p>
+</div>
+<aside class="notes">
+<p>Quarto se basa en Markdown, un lenguaje de marcado ligero y fácil de aprender. Markdown se utiliza para dar formato al texto, agregar imágenes, código y otros elementos a los documentos.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="por-qué-quarto-1" class="slide level2">
+<h2>¿Por qué <code>Quarto</code>?</h2>
+<p>UNIFICA y expande el Ecosistema <code>Rmarkdown</code>:</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="imagenes/rmd_ecosystem.png"></p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="imagenes/quarto_markdown.png"></p>
+<figcaption>Imagen de Nicola Rennie &amp; Colin Gillespie</figcaption>
+</figure>
+</div>
+</div>
+</div>
+
+<div class="footer">
+
+</div>
+<aside class="notes">
+<p>Interfaz de línea de comandos</p>
+<p>A diferencia de R Markdown, Quarto no es un paquete de R. Quarto es una interfaz de línea de comandos. Esto hace que sea mucho más fácil trabajar con documentos Quarto fuera del IDE de RStudio. Por ejemplo, si alguna vez necesita renderizar un archivo desde un terminal, creemos que estará de acuerdo en que quarto render document.qmd es mucho más fácil de usar que: Para ver las otras opciones de la línea de comandos, ejecute quarto –help en la terminal. Quarto es un producto único la unificación del ecosistema R Markdown, así que profundicemos un poco más en lo que eso significa…</p>
+<p>Piense en todos los paquetes del uniDverso R Markdown que ha llegado a amar y en los que confía a lo largo de los años. Cada paquete aborda una necesidad diferente y ofrece un resultado diferente: por ejemplo, puede usar blogdown o destilar para crear sitios web y blogs, bookdown para escribir un libro, artículos para escribir artículos de revistas, etc. <strong>Markdown es un lenguaje de marcado ligero creado por John Gruber y Aaron Swartz que trata de conseguir la máxima legibilidad y facilidad de publicación tanto en su forma de entrada como de salida</strong> Gruber tenía la meta de hacer que la gente «pudiera escribir usando un formato de texto llano fácil de leer, fácil de escribir y co la posibilidad de convertir su documento en HTML válido». También puede crear plantillas personalizadas para diferentes tipos de documentos. Por ejemplo, agregando la marca corporativa a un informe PDF.</p>
+<p>At its core, Quarto is multilingual and independent of computational systems Has expanded upon R Markdown to add new languages and can add more in the future</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<aside><div>
+<p>Interfaz de línea de comandos <br> <span class="background-text"><code>quarto render documento.qmd</code> <br> <br> Rscript -e “rmarkdown::render(‘documento.Rmd’)”</span></p>
+</div></aside></section>
+<section id="por-qué-quarto-2" class="slide level2 scrollable">
+<h2>¿Por qué <code>Quarto</code>?</h2>
+<h3 id="nuevas-características">Nuevas características</h3>
+<ul>
+<li class="fragment">Cross references</li>
+<li class="fragment">Advanced layout</li>
+<li class="fragment">Figure/layout panels</li>
+<li class="fragment">Callouts</li>
+<li class="fragment">Diagrams</li>
+<li class="fragment">Extensions</li>
+<li class="fragment">Interactivity</li>
+<li class="fragment">YAML intelligence</li>
+<li class="fragment">Publishing</li>
+<li class="fragment">Conditional content</li>
+<li class="fragment">Notebook filters</li>
+</ul>
+<aside class="notes">
+<p>R Markdown isn’t going away but big new features will be in Quarto, things like YAML intelligence, figure panels, layouts, which we’ll cover later in the session.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="quarto-es" class="slide level2">
+<h2>Quarto es:</h2>
+<div class="medium">
+<ul>
+<li class="fragment"><code>Es flexible y portable:</code> Puedes usar Quarto para crear una amplia variedad de documentos. Los documentos Quarto se pueden generar en una variedad de formatos, como HTML, PDF, EPUB y DOCX.</li>
+<li class="fragment"><code>Es fácil de aprender:</code> Markdown es un lenguaje de marcado ligero y fácil de aprender.</li>
+<li class="fragment"><code>Es gratis y de código abierto:</code> Puedes usar Quarto de forma gratuita y el código fuente está disponible para que cualquiera lo pueda modificar.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Más importante</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="big">El autor tiene que preocuparse más por el contenido que por el formato.</span></p>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>En R Markdown, puede usar {distill} para crear un sitio web, {bookdown} para escribir un libro y {revealjs} para hacer diapositivas. Eso podría significar que está utilizando tres paquetes diferentes para crear tres tipos diferentes de contenido sobre el mismo tema. Quarto combina la funcionalidad de R Markdown, bookdown, distill y otros paquetes en un solo sistema. Esto puede facilitar la creación de contenido con múltiples formatos de salida. Por ejemplo, puede usar referencias cruzadas sin instalar {bookdown} y hacer presentaciones sin instalar {revealjs}. Tener menos dependencias hace que los proyectos sean más fáciles de mantener a largo plazo, ¡no tiene tantos paquetes R para actualizar!</p>
+<p>Combinando contenido (y códigos abreviados)</p>
+<p>Quarto le permite utilizar inclusiones al estilo de Hugo. Esto brinda una forma conveniente de reutilizar contenido en varios documentos. Por ejemplo, suponga que tiene un párrafo o dos que brindan una introducción a su empresa. En lugar de copiar y pegar constantemente, el párrafo se almacena en un documento separado, about.qmd, y se puede incluir usando {{&lt; include about.qmd &gt;}}. Agregar este fragmento a su documento es equivalent a copiar y pegar el texto de about.qmd en el archivo principal. La consecuencia es que los enlaces e imágenes relativos se resuelven según el directorio del documento principal.</p>
+<p>include es solo un ejemplo de un código abreviado de Quarto. Otros códigos abreviados útiles a tener en cuenta son var y pagebreak. El código abreviado var le permite acceder a valores del archivo _variables.yml. En el pasado, es posible que haya escrito una función R corta para esta tarea. El código abreviado pagebreak proporciona un mecanismo conveniente para agregar saltos de página en diferentes formatos de salida, por ejemplo, HTML, PDF o doc.</p>
+<p>También puede crear plantillas personalizadas para diferentes tipos de documentos. Por ejemplo, agregando la marca corporativa a un informe PDF.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="ventajas-de-usar" class="slide level2">
+<h2>Ventajas de usar</h2>
+<ul>
+<li class="fragment"><span class="blue">Multiplataforma</span>: Se puede utilizar en Windows, Mac Os, ubuntu, Debian…<br>
+</li>
+<li class="fragment"><span class="blue">Multilenguaje</span>: R, Python, bash… Julia u Observable.</li>
+<li class="fragment"><span class="blue">Multi-entorno</span>:</li>
+<li class="fragment"><img data-src="imagenes/usage.png" style="width:80.0%"></li>
+</ul>
+<p><span class="absolute" style="top: 5%; left: 28%; width: 300px; "><img data-src="imagenes/quarto.png"></span> <span class="absolute fragment" style="top: 20%; left: 45%; width: 300px; "><i class="fa-solid fa-car-battery" style="font-size: 7em; color: black;"></i></span></p>
+<p><span class="absolute background-text fragment" style="top: 50%; left: 48%; ">BATERIAS INCLUIDAS</span></p>
+<aside class="notes">
+<p>Una de las principales características de Quarto es que no solo está construido para R. Es independiente del lenguaje. Puede renderizar documentos que contienen código escrito en R, Python, Julia u Observable. Eso lo hace increíblemente útil si trabaja en equipos multilingües o colabora con personas que escriben en un lenguaje de programación diferente al suyo. Pero, ¿qué pasa si no utiliza ningún otro lenguaje de programación? ¿Qué beneficios aporta Quarto a las personas que solo usan R?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="un-mundo-de-posibilidades" class="title-slide slide level1 center">
+<h1>¡Un mundo de posibilidades!</h1>
+
+</section>
+<section id="distintos-formatos" class="slide level2">
+<h2>Distintos formatos</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div>
+<ul>
+<li><a href="https://jjallaire.github.io/hopr/">Libros</a></li>
+<li><a href="https://quarto-dev.github.io/quarto-gallery/page-layout/tufte.pdf">Informes técnicos</a></li>
+<li>Tesis</li>
+<li>Presentaciones</li>
+<li><a href="https://quarto-journals.github.io/elsevier/">Artículos científicos</a></li>
+<li><a href="https://quarto.org/docs/interactive/ojs/examples/penguins.html">Páginas interactivas</a></li>
+<li><a href="https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/">Sitios web</a></li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<p><img data-src="imagenes/reporte_tecnico.png" alt="Reportes"> <img data-src="imagenes/miblog.png" alt="BLOG"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="imagenes/website.png" style="width:100.0%"></p>
+<figcaption>web</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Esta presentación está construida con <code>Quarto</code></p>
+</div>
+<aside class="notes">
+<p>destacaremos algunas de las características de Quarto de las que los usuarios de R podrían beneficiarse.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="texto-con-parámetros" class="slide level2">
+<h2>Texto con parámetros</h2>
+<p>Los datos de <code>pingüinos</code> del paquete <a href="https://allisonhorst.github.io/palmerpenguins" title="palmerpenguins R package"><strong>palmerpenguins</strong></a> contienen medidas de tamaño de 344 pingüinos de tres especies observadas en tres islas del archipiélago de Palmer , Antártida.</p>
+<p><br></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href=""></a>Los datos de <span class="in">`pingüinos`</span> del paquete <span class="co">[</span><span class="ot">**palmerpenguins**</span><span class="co">](https://allisonhorst.github.io/palmerpenguins "palmerpenguins R package")</span> contienen medidas de tamaño de 344 pingüinos de tres especies observadas en tres islas del archipiélago de Palmer , Antártida.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<p>Si usa el editor visual, no necesitará aprender mucha sintaxis de rebajas para crear su documento, ya que puede usar los menús y accesos directos para agregar un encabezado, texto en negrita, insertar una tabla, etc. Si usa el editor de código fuente, puede consígalos con expresiones de markdown como ##, <strong>negrita</strong>, etc.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="se-puede-agregar-código-de-r" class="slide level2">
+<h2>Se puede agregar código de R</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href=""></a><span class="in">```{r}</span></span>
+<span id="cb3-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb3-3"><a href=""></a><span class="in">#| eval: FALSE</span></span>
+<span id="cb3-4"><a href=""></a><span class="in">#| code-line-numbers: 3-4</span></span>
+<span id="cb3-5"><a href=""></a></span>
+<span id="cb3-6"><a href=""></a><span class="in">ggplot(penguins, </span></span>
+<span id="cb3-7"><a href=""></a><span class="in">       aes(x = flipper_length_mm, y = bill_length_mm)) +</span></span>
+<span id="cb3-8"><a href=""></a><span class="in">  geom_point(aes(color = species, shape = species)) +</span></span>
+<span id="cb3-9"><a href=""></a><span class="in">  scale_color_manual(values = c("darkorange","purple","cyan4")) </span></span>
+<span id="cb3-10"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<p><br></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4" data-code-line-numbers="3-4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">ggplot</span>(penguins, </span>
+<span id="cb4-2"><a href=""></a>       <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> bill_length_mm)) <span class="sc">+</span></span>
+<span id="cb4-3"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> species, <span class="at">shape =</span> species)) <span class="sc">+</span></span>
+<span id="cb4-4"><a href=""></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<aside class="notes">
+<p>Most of the core capabilities of Quarto HTML Code Blocks are available for Reveal slides, including code folding, code copy, and the ability to pick a custom syntax highlighting theme. Revealjs also has some functionality not available in documents, such as code-line-highlighting, which lets you highlight specific lines of code output or highlight distinct lines over a progression of steps.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="código-de-python" class="slide level2">
+<h2>Código de Python</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-2"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb5-3"><a href=""></a></span>
+<span id="cb5-4"><a href=""></a>r <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">2</span>, <span class="fl">0.01</span>)</span>
+<span id="cb5-5"><a href=""></a>theta <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> r</span>
+<span id="cb5-6"><a href=""></a>fig, ax <span class="op">=</span> plt.subplots(subplot_kw<span class="op">=</span>{<span class="st">'projection'</span>: <span class="st">'polar'</span>})</span>
+<span id="cb5-7"><a href=""></a>ax.plot(theta, r)</span>
+<span id="cb5-8"><a href=""></a>ax.set_rticks([<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">1.5</span>, <span class="dv">2</span>])</span>
+<span id="cb5-9"><a href=""></a>ax.grid(<span class="va">True</span>)</span>
+<span id="cb5-10"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Para dar clases</code></p>
+<div class="sourceCode" id="cb6" data-code-line-numbers="|6|9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-2"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb6-3"><a href=""></a></span>
+<span id="cb6-4"><a href=""></a>r <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">2</span>, <span class="fl">0.01</span>)</span>
+<span id="cb6-5"><a href=""></a>theta <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> r</span>
+<span id="cb6-6"><a href=""></a>fig, ax <span class="op">=</span> plt.subplots(subplot_kw<span class="op">=</span>{<span class="st">'projection'</span>: <span class="st">'polar'</span>})</span>
+<span id="cb6-7"><a href=""></a>ax.plot(theta, r)</span>
+<span id="cb6-8"><a href=""></a>ax.set_rticks([<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">1.5</span>, <span class="dv">2</span>])</span>
+<span id="cb6-9"><a href=""></a>ax.grid(<span class="va">True</span>)</span>
+<span id="cb6-10"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="codigo-y-resultado" class="slide level2">
+<h2>Codigo y resultado</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb7-2"><a href=""></a><span class="fu">ggplot</span>(airquality, <span class="fu">aes</span>(Temp, Ozone)) <span class="sc">+</span> </span>
+<span id="cb7-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb7-4"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+
+</section>
+<section id="codigo-y-resultado-output" class="slide level2 output-location-slide"><h2>Codigo y resultado</h2><div class="cell output-location-slide">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="R_ladies_template_2024_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div></section><section id="y-tablas" class="slide level2 smaller">
+<h2>¿Y tablas?</h2>
+<h3 id="knitrkable"><code>knitr::kable()</code></h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>tab <span class="ot">&lt;-</span> starwars <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a href=""></a>  tidyr<span class="sc">::</span><span class="fu">drop_na</span>(species) <span class="sc">|&gt;</span> </span>
+<span id="cb8-3"><a href=""></a>  <span class="fu">group_by</span>(species) <span class="sc">|&gt;</span></span>
+<span id="cb8-4"><a href=""></a>  <span class="fu">summarise</span>(</span>
+<span id="cb8-5"><a href=""></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb8-6"><a href=""></a>    <span class="at">mean_heigth =</span> <span class="fu">round</span>(<span class="fu">mean</span>(height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb8-7"><a href=""></a>    <span class="at">mean_mass =</span> <span class="fu">round</span>(<span class="fu">mean</span>(mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb8-8"><a href=""></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb8-9"><a href=""></a>  <span class="fu">slice_max</span>(<span class="at">order_by =</span> n, <span class="at">n =</span> <span class="dv">4</span>) </span>
+<span id="cb8-10"><a href=""></a></span>
+<span id="cb8-11"><a href=""></a>knitr<span class="sc">::</span><span class="fu">kable</span>(tab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">species</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">mean_heigth</th>
+<th style="text-align: right;">mean_mass</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Human</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">177</td>
+<td style="text-align: right;">83</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Droid</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">131</td>
+<td style="text-align: right;">70</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Gungan</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">209</td>
+<td style="text-align: right;">74</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kaminoan</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">221</td>
+<td style="text-align: right;">88</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mirialan</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">168</td>
+<td style="text-align: right;">53</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Twi’lek</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">179</td>
+<td style="text-align: right;">55</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Wookiee</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">231</td>
+<td style="text-align: right;">124</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Zabrak</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">173</td>
+<td style="text-align: right;">80</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="dtdatatable" class="slide level2 smaller">
+<h2><code>DT::datatable()</code></h2>
+<p>Con la clase <code>smaller</code> en la diapositiva! Ex: <code>## Nombre de diapositiva {.smaller}</code></p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-c3db08744aea6018d89f" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-c3db08744aea6018d89f">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8"],["Human","Droid","Gungan","Kaminoan","Mirialan","Twi'lek","Wookiee","Zabrak"],[35,6,3,2,2,2,2,2],[177,131,209,221,168,179,231,173],[83,70,74,88,53,55,124,80]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>species<\/th>\n      <th>n<\/th>\n      <th>mean_heigth<\/th>\n      <th>mean_mass<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[2,3,4]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"species","targets":1},{"name":"n","targets":2},{"name":"mean_heigth","targets":3},{"name":"mean_mass","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="diagramas-con-mermaid" class="slide level2">
+<h2>Diagramas con Mermaid!</h2>
+<p>Lean sobre esto en: <a href="https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/posts/21-diagrams/">post by Mine Çetinkaya-Rundel</a>.</p>
+<center>
+<blockquote class="twitter-tweet" data-conversation="none">
+<p lang="en" dir="ltr">
+<a href="https://twitter.com/hashtag/quartotip?src=hash&amp;ref_src=twsrc%5Etfw">#quartotip</a> 21: Create diagrams in Quarto documents using Mermaid or Graphviz in executable code cells, similar to how you create figures.<br><br>Read more: <a href="https://t.co/3qx9oSNCay">https://t.co/3qx9oSNCay</a> <a href="https://t.co/fYzGcISl4h">pic.twitter.com/fYzGcISl4h</a>
+</p>
+— Quarto (<span class="citation" data-cites="quarto_pub">@quarto_pub</span>) <a href="https://twitter.com/quarto_pub/status/1549271325943947270?ref_src=twsrc%5Etfw">July 19, 2022</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</center>
+</section>
+<section id="diagrams" class="slide level2">
+<h2>Diagrams</h2>
+<p>Quarto has native support for embedding Mermaid and Graphviz diagrams.</p>
+<div class="cell" data-reveal="true" data-fig-width="6" data-layout-align="default">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href=""></a><span class="in">```{mermaid}</span></span>
+<span id="cb9-2"><a href=""></a><span class="in">%%| fig-width: 6</span></span>
+<span id="cb9-3"><a href=""></a><span class="in">flowchart LR</span></span>
+<span id="cb9-4"><a href=""></a><span class="in">  A[1] --&gt; B(2)</span></span>
+<span id="cb9-5"><a href=""></a><span class="in">  B --&gt; C{3}</span></span>
+<span id="cb9-6"><a href=""></a><span class="in">  C --&gt; D[4]</span></span>
+<span id="cb9-7"><a href=""></a><span class="in">  C --&gt; E[5]</span></span>
+<span id="cb9-8"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  A[1] --&gt; B(2)
+  B --&gt; C{3}
+  C --&gt; D[4]
+  C --&gt; E[5]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>There is also native support for diagrams, where the syntax is similar as R or Python where the execution is being run by Quarto. This is a Mermaid diagram, which is a newer project supported on GitHub where you can use it in their documents as well, so it’s a pretty handy tool to get to know.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="quarto" class="slide level2">
+<h2>Quarto</h2>
+<h3 id="equations">Equations</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href=""></a><span class="in">```{markdown}</span></span>
+<span id="cb10-2"><a href=""></a><span class="in">$$E = mc^{2}$$</span></span>
+<span id="cb10-3"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><span class="math display">\[E = mc^{2}\]</span></p>
+</section>
+<section id="callout-blocks" class="slide level2">
+<h2>Callout Blocks</h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href=""></a>:::{.callout-tip}</span>
+<span id="cb11-2"><a href=""></a></span>
+<span id="cb11-3"><a href=""></a>Note that there are five types of callouts, including: </span>
+<span id="cb11-4"><a href=""></a><span class="in">`note`</span>, <span class="in">`tip`</span>, <span class="in">`warning`</span>, <span class="in">`caution`</span>, and <span class="in">`important`</span>.</span>
+<span id="cb11-5"><a href=""></a></span>
+<span id="cb11-6"><a href=""></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Note that there are five types of callouts, including: <code>note</code>, <code>tip</code>, <code>warning</code>, <code>caution</code>, and <code>important</code>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="divs" class="slide level2">
+<h2>Divs</h2>
+<h3 id="callout-blocks-1">Callout Blocks</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href=""></a>::: {#call1 .callout-note appearance="simple"}</span>
+<span id="cb12-2"><a href=""></a></span>
+<span id="cb12-3"><a href=""></a><span class="fu">## Pay Attention</span></span>
+<span id="cb12-4"><a href=""></a></span>
+<span id="cb12-5"><a href=""></a>Using callouts is an effective way to highlight content that your reader give special consideration or attention.</span>
+<span id="cb12-6"><a href=""></a></span>
+<span id="cb12-7"><a href=""></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="call1">
+<div id="call1" class="callout callout-note callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Pay Attention</strong></p>
+</div>
+<div class="callout-content">
+<p>Using callouts is an effective way to highlight content that your reader give special consideration or attention.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="divs-1" class="slide level2">
+<h2>Divs</h2>
+<h3 id="callout-blocks-2">Callout Blocks</h3>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p>.callout-warning</p>
+</div>
+</div>
+</div>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Caution</strong></p>
+</div>
+<div class="callout-content">
+<p>.callout-caution</p>
+</div>
+</div>
+</div>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>.callout-important</p>
+</div>
+</div>
+</div>
+</section>
+<section id="divs-2" class="slide level2">
+<h2>Divs</h2>
+<h3 id="columnas-múltiples">Columnas múltiples</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href=""></a><span class="in">```{markdown}</span></span>
+<span id="cb13-2"><a href=""></a><span class="in">::: {layout-ncol=2}</span></span>
+<span id="cb13-3"><a href=""></a></span>
+<span id="cb13-4"><a href=""></a><span class="in">![](imagenes/pinguinos.jpg){width="50%"}</span></span>
+<span id="cb13-5"><a href=""></a></span>
+<span id="cb13-6"><a href=""></a><span class="in">Photo by &lt;a href="https://unsplash.com/@corneliusventures?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText"&gt;Cornelius Ventures&lt;/a&gt; on &lt;a href="https://unsplash.com/s/photos/penguin?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;</span></span>
+<span id="cb13-7"><a href=""></a><span class="in">:::</span></span>
+<span id="cb13-8"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>. . .</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="imagenes/pinguinos.jpg" style="width:50.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>Photo by <a href="https://unsplash.com/@corneliusventures?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Cornelius Ventures</a> on <a href="https://unsplash.com/s/photos/penguin?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></p>
+</div>
+</div>
+</div>
+</section>
+<section id="divs-3" class="slide level2">
+<h2>Divs</h2>
+<h3 id="tabsets">Tabsets</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href=""></a><span class="in">```{markdown}</span></span>
+<span id="cb14-2"><a href=""></a><span class="in">::: {.panel-tabset group="language"}</span></span>
+<span id="cb14-3"><a href=""></a><span class="in">## R</span></span>
+<span id="cb14-4"><a href=""></a></span>
+<span id="cb14-5"><a href=""></a><span class="in">`library(dplyr)`</span></span>
+<span id="cb14-6"><a href=""></a></span>
+<span id="cb14-7"><a href=""></a><span class="in">## Python</span></span>
+<span id="cb14-8"><a href=""></a></span>
+<span id="cb14-9"><a href=""></a><span class="in">`import pandas as pd`</span></span>
+<span id="cb14-10"><a href=""></a><span class="in">:::</span></span>
+<span id="cb14-11"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="panel-tabset" data-group="language">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">R</a></li><li><a href="#tabset-1-2">Python</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-1-1">
+<p><code>library(dplyr)</code></p>
+</div>
+<div id="tabset-1-2">
+<p><code>import pandas as pd</code></p>
+</div>
+</div>
+</div>
+</section>
+<section id="exportar" class="slide level2">
+<h2>Exportar</h2>
+<p>Puedes usar la función: <code>pagedown::chrome_print()</code> to print the HTML version into a PDF!</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>pagedown<span class="sc">::</span><span class="fu">chrome_print</span>(<span class="st">"path-to-file.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="recursos" class="slide level2">
+<h2>Recursos:</h2>
+<ul>
+<li class="fragment"><a href="https://occasionaldivergences.com/posts/quarto-questions/">Preguntas sobre Quarto:Marc Dotson</a> <br></li>
+<li class="fragment"><a href="https://www.youtube.com/watch?v=Sf__ERCSgIA">Isabela Velazquez meetup con R-ladiesNairobi</a></li>
+</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p><a href="https://jadeyryan.com/">Jadey Ryan - Documentos con parámetros</a></p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment"><p><a href="https://github.com/Haly-en/Tesis_template.git">Plantilla para tesis en Quarto</a></p></li>
+<li class="fragment"><p>Gracias! a La librería de pingüinos Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. R package version 0.1.0. https://allisonhorst.github.io/palmerpenguins/. doi: 10.5281/zenodo.3960218. ## Propaganda:</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="imagenes/PyLadies_12_de_abril_2024.jpg"></p>
+<figcaption>PyLadies</figcaption>
+</figure>
+</div>
+<div class="quarto-auto-generated-content">
+<p><img src="logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://quarto.org" class="uri">https://quarto.org</a></p>
+</div>
+</div>
+<div class="reveal-header">
+<div class="header-logo" data-header-logo-link="https://quarto.org" data-footer-logo-link="https://github.com/RLadiesCuerna/meetup_abril_2024/blob/main/README.md">
+<img data-src="quarto.png">
+</div>
+<div class="sc-title">
+<p> </p>
+</div>
+<div class="header-text title-text">
+<p>Introducción a Quarto</p>
+</div>
+<div class="sb-title">
+<p> </p>
+</div>
+</div>
+</section></section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="R_ladies_template_2024_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="R_ladies_template_2024_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="R_ladies_template_2024_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="R_ladies_template_2024_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="R_ladies_template_2024_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="R_ladies_template_2024_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="R_ladies_template_2024_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="R_ladies_template_2024_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="R_ladies_template_2024_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="R_ladies_template_2024_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="R_ladies_template_2024_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true,"width":"wide"},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: true,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          return note.innerHTML;
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
